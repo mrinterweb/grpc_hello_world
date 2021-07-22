@@ -1,8 +1,9 @@
 syntax = "proto3";
 package hello;
 
-service Hello {
+service HelloService {
   rpc say_hello (HelloRequest) returns (HelloResponse) {}
+  rpc say_hello_stream (HelloRequest) returns (stream HelloResponse) {}
 }
 
 message HelloRequest {

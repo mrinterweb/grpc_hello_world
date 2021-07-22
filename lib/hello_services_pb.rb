@@ -5,16 +5,17 @@ require 'grpc'
 require 'hello_pb'
 
 module Hello
-  module Hello
+  module HelloService
     class Service
 
       include ::GRPC::GenericService
 
       self.marshal_class_method = :encode
       self.unmarshal_class_method = :decode
-      self.service_name = 'hello.Hello'
+      self.service_name = 'hello.HelloService'
 
       rpc :say_hello, ::Hello::HelloRequest, ::Hello::HelloResponse
+      rpc :say_hello_stream, ::Hello::HelloRequest, stream(::Hello::HelloResponse)
     end
 
     Stub = Service.rpc_stub_class
