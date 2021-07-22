@@ -11,7 +11,8 @@ def client
   @client || Hello::Client.instance
 end
 
-# response = client.say_hello('fred')
-# puts "Client received: #{response}"
+name = ARGV[0] || 'Sean'
+response = client.say_hello(name)
+puts "Client received: #{response}"
 
-binding.pry
+# binding.pry
