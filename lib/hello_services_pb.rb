@@ -15,7 +15,6 @@ module Hello
       self.service_name = 'hello.HelloService'
 
       rpc :say_hello, ::Hello::HelloRequest, ::Hello::HelloResponse
-      rpc :say_hello_stream, ::Hello::HelloRequest, stream(::Hello::HelloResponse)
     end
 
     Stub = Service.rpc_stub_class

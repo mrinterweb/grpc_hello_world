@@ -16,11 +16,6 @@ class Hello::Client
     client.say_hello(request)
   end
 
-  def say_hello_stream(name)
-    request = request(name)
-    client.say_hello_stream(request)
-  end
-
   private
 
   def request(name)
